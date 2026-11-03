@@ -1,0 +1,842 @@
+{
+  "option_groups": {
+    "coffee_type": {
+      "label": "Coffee type",
+      "pick": "one",
+      "required": true,
+      "choices": [
+        {
+          "name": "Latte",
+          "price": 0
+        },
+        {
+          "name": "Flat White",
+          "price": 0
+        },
+        {
+          "name": "Cappuccino",
+          "price": 0
+        },
+        {
+          "name": "Long Black",
+          "price": 0
+        }
+      ]
+    },
+    "espresso_type": {
+      "label": "Type",
+      "pick": "one",
+      "required": true,
+      "choices": [
+        {
+          "name": "Piccolo",
+          "price": 0
+        },
+        {
+          "name": "Macchiato",
+          "price": 0
+        },
+        {
+          "name": "Espresso",
+          "price": 0
+        }
+      ]
+    },
+    "chocolate_type": {
+      "label": "Chocolate",
+      "pick": "one",
+      "required": true,
+      "choices": [
+        {
+          "name": "White",
+          "price": 0
+        },
+        {
+          "name": "Milk",
+          "price": 0
+        },
+        {
+          "name": "Dark",
+          "price": 0
+        }
+      ]
+    },
+    "tea_type": {
+      "label": "Tea type",
+      "pick": "one",
+      "required": true,
+      "choices": [
+        {
+          "name": "English Breakfast",
+          "price": 0
+        },
+        {
+          "name": "Earl Grey",
+          "price": 0
+        },
+        {
+          "name": "Peppermint",
+          "price": 0
+        },
+        {
+          "name": "Sencha Green",
+          "price": 0
+        }
+      ]
+    },
+    "milk": {
+      "label": "Milk",
+      "pick": "one",
+      "required": false,
+      "default": "Full Cream",
+      "choices": [
+        {
+          "name": "Full Cream",
+          "price": 0
+        },
+        {
+          "name": "Lite Milk",
+          "price": 0
+        },
+        {
+          "name": "Lactose Free Milk",
+          "price": 0.8
+        },
+        {
+          "name": "Almond Milk",
+          "price": 0.8
+        },
+        {
+          "name": "Soy Milk",
+          "price": 0.8
+        },
+        {
+          "name": "Oat Milk",
+          "price": 0.8
+        },
+        {
+          "name": "No Milk",
+          "price": 0
+        }
+      ]
+    },
+    "syrup": {
+      "label": "Syrup",
+      "pick": "many",
+      "required": false,
+      "choices": [
+        {
+          "name": "Caramel",
+          "price": 0.8
+        },
+        {
+          "name": "Vanilla",
+          "price": 0.8
+        },
+        {
+          "name": "Hazelnut",
+          "price": 0.8
+        }
+      ]
+    },
+    "strength": {
+      "label": "Strength",
+      "pick": "many",
+      "required": false,
+      "choices": [
+        {
+          "name": "Extra Shot",
+          "price": 0.8
+        },
+        {
+          "name": "Half Strength",
+          "price": 0
+        },
+        {
+          "name": "Decaf",
+          "price": 0.8
+        }
+      ]
+    },
+    "matcha_strength": {
+      "label": "Strength",
+      "pick": "many",
+      "required": false,
+      "choices": [
+        {
+          "name": "Extra Shot",
+          "price": 0.8
+        },
+        {
+          "name": "Half Strength",
+          "price": 0
+        }
+      ]
+    },
+    "cream": {
+      "label": "Whipped cream",
+      "pick": "one",
+      "required": false,
+      "choices": [
+        {
+          "name": "Add Cream",
+          "price": 0.8
+        },
+        {
+          "name": "No Cream",
+          "price": 0
+        }
+      ]
+    }
+  },
+  "items": [
+    {
+      "id": "original-glaze-og",
+      "name": "Original Glaze (O.G)",
+      "category": "Donuts",
+      "price": 5.0
+    },
+    {
+      "id": "coconut-og-v",
+      "name": "Coconut O.G (V)",
+      "category": "Donuts",
+      "price": 5.0
+    },
+    {
+      "id": "caramel-mini",
+      "name": "Caramel Mini",
+      "category": "Donuts",
+      "price": 4.9
+    },
+    {
+      "id": "custard-cream-mini",
+      "name": "Custard Cream Mini",
+      "category": "Donuts",
+      "price": 4.9
+    },
+    {
+      "id": "jam-mini",
+      "name": "Jam Mini",
+      "category": "Donuts",
+      "price": 4.9
+    },
+    {
+      "id": "new-tella-mini",
+      "name": "New-Tella Mini",
+      "category": "Donuts",
+      "price": 4.9
+    },
+    {
+      "id": "biscoff-v",
+      "name": "Biscoff (V)",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "boston-cream",
+      "name": "Boston Cream",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "caramilk",
+      "name": "Caramilk",
+      "category": "Donuts",
+      "price": 6.5
+    },
+    {
+      "id": "chocolate-brownie",
+      "name": "Chocolate Brownie",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "cookies-and-cream",
+      "name": "Cookies & Cream",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "custard-cream",
+      "name": "Custard Cream",
+      "category": "Donuts",
+      "price": 6.5
+    },
+    {
+      "id": "golden-yaytime",
+      "name": "Golden Yaytime",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "kinder-bueno",
+      "name": "Kinder Bueno",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "meringue",
+      "name": "Meringue",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "milk-chocolate",
+      "name": "Milk Chocolate",
+      "category": "Donuts",
+      "price": 6.5
+    },
+    {
+      "id": "new-york-cheesecake",
+      "name": "New York Cheesecake",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "raspberry-cream-v",
+      "name": "Raspberry Cream (V)",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "red-velvet",
+      "name": "Red Velvet",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "rocky-road",
+      "name": "Rocky Road",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "golden-ferrero",
+      "name": "Golden Ferrero",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "homer",
+      "name": "Homer",
+      "category": "Donuts",
+      "price": 6.5
+    },
+    {
+      "id": "warm-cinnamon",
+      "name": "Warm Cinnamon",
+      "category": "Donuts",
+      "price": 4.0
+    },
+    {
+      "id": "white-choc-cookies",
+      "name": "White Choc Cookies",
+      "category": "Donuts",
+      "price": 6.5
+    },
+    {
+      "id": "apple-crumble",
+      "name": "Apple Crumble",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "bee-sting",
+      "name": "Bee Sting",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "new-york-cream",
+      "name": "New York Cream",
+      "category": "Donuts",
+      "price": 6.5
+    },
+    {
+      "id": "new-tella",
+      "name": "New-Tella",
+      "category": "Donuts",
+      "price": 6.5
+    },
+    {
+      "id": "original-caramel",
+      "name": "Original Caramel",
+      "category": "Donuts",
+      "price": 6.5
+    },
+    {
+      "id": "original-jam",
+      "name": "Original Jam",
+      "category": "Donuts",
+      "price": 6.5
+    },
+    {
+      "id": "pistachio-white-chocolate",
+      "name": "Pistachio White Chocolate",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "tim-tam-slammer",
+      "name": "Tim Tam Slammer",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "white-biscoff",
+      "name": "White Biscoff",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "white-new-tella",
+      "name": "White New-Tella",
+      "category": "Donuts",
+      "price": 6.5
+    },
+    {
+      "id": "pineapple-delight",
+      "name": "Pineapple Delight",
+      "category": "Donuts",
+      "price": 5.0
+    },
+    {
+      "id": "dubai-chocolate",
+      "name": "Dubai Chocolate",
+      "category": "Donuts",
+      "price": 6.9
+    },
+    {
+      "id": "cold-brew-black-small",
+      "name": "Cold Brew Black Small",
+      "price": 6.9,
+      "category": "Iced Drinks"
+    },
+    {
+      "id": "cold-brew-black-regular",
+      "name": "Cold Brew Black Regular",
+      "price": 7.9,
+      "category": "Iced Drinks"
+    },
+    {
+      "id": "cold-brew-black-large",
+      "name": "Cold Brew Black Large",
+      "price": 8.9,
+      "category": "Iced Drinks"
+    },
+    {
+      "id": "cold-brew-milk-small",
+      "name": "Cold Brew Milk Small",
+      "price": 6.9,
+      "category": "Iced Drinks"
+    },
+    {
+      "id": "iced-latte-small",
+      "name": "Iced Latte Small",
+      "price": 6.3,
+      "category": "Iced Drinks"
+    },
+    {
+      "id": "iced-latte-regular",
+      "name": "Iced Latte Regular",
+      "price": 7.9,
+      "category": "Iced Drinks"
+    },
+    {
+      "id": "iced-latte-large",
+      "name": "Iced Latte Large",
+      "price": 8.9,
+      "category": "Iced Drinks"
+    },
+    {
+      "id": "iced-chocolate-small",
+      "name": "Iced Chocolate Small",
+      "price": 7.5,
+      "category": "Iced Drinks"
+    },
+    {
+      "id": "iced-chocolate-medium",
+      "name": "Iced Chocolate Medium",
+      "price": 8.5,
+      "category": "Iced Drinks"
+    },
+    {
+      "id": "coffee",
+      "name": "Coffee",
+      "category": "Coffee",
+      "sizes": {
+        "Small": 4.0,
+        "Regular": 5.0,
+        "Large": 6.0
+      },
+      "options": [
+        "coffee_type",
+        "milk",
+        "syrup",
+        "strength"
+      ]
+    },
+    {
+      "id": "piccolo-macchiato-espresso",
+      "name": "Piccolo / Macchiato / Espresso (4oz)",
+      "category": "Coffee",
+      "price": 4.0,
+      "options": [
+        "espresso_type"
+      ]
+    },
+    {
+      "id": "mocha",
+      "name": "Mocha",
+      "category": "Coffee",
+      "sizes": {
+        "Small": 5.4,
+        "Regular": 6.0,
+        "Large": 6.6
+      },
+      "options": [
+        "chocolate_type",
+        "milk",
+        "syrup"
+      ]
+    },
+    {
+      "id": "chai-latte",
+      "name": "Chai Latte",
+      "category": "Coffee",
+      "sizes": {
+        "Small": 5.4,
+        "Regular": 6.0,
+        "Large": 6.6
+      },
+      "options": [
+        "milk",
+        "syrup"
+      ]
+    },
+    {
+      "id": "dirty-chai",
+      "name": "Dirty Chai",
+      "category": "Coffee",
+      "sizes": {
+        "Small": 5.4,
+        "Regular": 6.0,
+        "Large": 6.6
+      },
+      "options": [
+        "milk",
+        "syrup",
+        "strength"
+      ]
+    },
+    {
+      "id": "tea",
+      "name": "Tea",
+      "category": "Tea",
+      "price": 4.0,
+      "options": [
+        "tea_type",
+        "milk",
+        "syrup"
+      ]
+    },
+    {
+      "id": "matcha-latte",
+      "name": "Matcha Latte",
+      "category": "Matcha",
+      "sizes": {
+        "Small": 5.4,
+        "Regular": 6.0,
+        "Large": 6.6
+      },
+      "options": [
+        "milk",
+        "syrup",
+        "matcha_strength"
+      ]
+    },
+    {
+      "id": "iced-matcha",
+      "name": "Iced Matcha",
+      "category": "Matcha",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "syrup"
+      ]
+    },
+    {
+      "id": "iced-strawberry-matcha",
+      "name": "Iced Strawberry Matcha",
+      "category": "Matcha",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "syrup"
+      ]
+    },
+    {
+      "id": "hot-chocolate",
+      "name": "Hot Chocolate",
+      "category": "Hot Chocolate",
+      "sizes": {
+        "Small": 5.4,
+        "Regular": 6.0,
+        "Large": 6.6
+      },
+      "options": [
+        "chocolate_type",
+        "milk",
+        "syrup"
+      ]
+    },
+    {
+      "id": "biscoff-frappe",
+      "name": "Biscoff Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "caramel-frappe",
+      "name": "Caramel Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "choc-mint-frappe",
+      "name": "Choc Mint Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "choc-peanut-butter-frappe",
+      "name": "Choc Peanut Butter Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "chocolate-frappe",
+      "name": "Chocolate Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "cookies-and-cream-frappe",
+      "name": "Cookies & Cream Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "espresso-frappe",
+      "name": "Espresso Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "ferrero-frappe",
+      "name": "Ferrero Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "honeycomb-frappe",
+      "name": "Honeycomb Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "mango-frappe",
+      "name": "Mango Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "matcha-chai-frappe",
+      "name": "Matcha Chai Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "mocha-frappe",
+      "name": "Mocha Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "pumpkin-spice-frappe",
+      "name": "Pumpkin Spice Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "vanilla-frappe",
+      "name": "Vanilla Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "white-choc-macadamia-frappe",
+      "name": "White Choc Macadamia Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    },
+    {
+      "id": "white-new-tella-frappe",
+      "name": "White New-Tella Frappe",
+      "category": "Frappes",
+      "sizes": {
+        "Small": 7.5,
+        "Regular": 8.5,
+        "Large": 9.5
+      },
+      "options": [
+        "milk",
+        "cream",
+        "syrup"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+[
+  {
+    "id": "bondi-junction",
+    "name": "Brooklyn Donuts Bondi Junction",
+    "address": "Westfield Bondi Junction, Kiosk K302, 500 Oxford St, Bondi Junction NSW 2022",
+    "phone": "(02) 8529 1809",
+    "hours": "Mon-Sat 7:00am-6:00pm; Sun 7:30am-5:00pm",
+    "lat": -33.8928,
+    "lng": 151.2495
+  },
+  {
+    "id": "broadway",
+    "name": "Brooklyn Donuts Broadway",
+    "address": "Broadway Shopping Centre, Kiosk 229, Level 2 North, 1 Bay St, Glebe NSW 2037",
+    "phone": "(02) 8526 4141",
+    "hours": "Fri-Wed 8:00am-8:00pm; Thu 8:00am-9:00pm",
+    "lat": -33.884,
+    "lng": 151.194
+  },
+  {
+    "id": "burwood",
+    "name": "Brooklyn Donuts Burwood",
+    "address": "Westfield Burwood, FK7, 100 Burwood Rd, Burwood NSW 2134",
+    "phone": "(02) 7235 4510",
+    "hours": "Mon-Fri 8:00am-6:00pm; Sat-Sun 8:30am-6:00pm",
+    "lat": -33.875,
+    "lng": 151.104
+  },
+  {
+    "id": "castle-towers",
+    "name": "Brooklyn Donuts Castle Towers",
+    "address": "Castle Towers, Level 1, Kiosk K1208, Castle Hill NSW 2154",
+    "phone": "(02) 7813 5062",
+    "hours": "Mon-Wed 7:00am-6:00pm; Thu 7:00am-9:00pm; Fri 7:00am-6:00pm; Sat-Sun 8:00am-6:00pm",
+    "lat": -33.731,
+    "lng": 151.0045
+  },
+  {
+    "id": "charlestown",
+    "name": "Brooklyn Donuts Charlestown",
+    "address": "Charlestown Square, 30 Pearson St, Charlestown NSW 2290",
+    "phone": "(02) 4091 7274",
+    "hours": "Mon-Wed 8:00am-5:00pm; Thu 8:00am-9:00pm; Fri-Sat 8:00am-5:00pm; Sun 9:00am-4:30pm",
+    "lat": -32.964092,
+    "lng": 151.693619
+  },
+  {
+    "id": "chatswood",
+    "name": "Brooklyn Donuts Chatswood",
+    "address": "Westfield Chatswood, Kiosk 322, 1 Anderson St, Chatswood NSW 2067",
+    "phone": "(02) 8529 1990",
+    "hours": "Mon-Wed 8:00am-6:00pm; Thu 8:00am-9:00pm; Fri-Sat 8:00am-6:00pm; Sun 9:00am-6:00pm",
+    "lat": -33.7965,
+    "lng": 151.183
+  },
+  {
+    "id": "eastern-creek",
+    "name": "Brooklyn Donuts Eastern Creek",
+    "address": "Eastern Creek Quarter (DFO), 159 Rooty Hill Rd S, Eastern Creek NSW 2766",
+    "phone": "(02) 8395 7896",
+    "hours": "Mon-Wed 10:00am-5:30pm; Thu-Fri 10:00am-7:30pm; Sat 9:30am-6:30pm; Sun 9:30am-5:30pm",
+    "lat": -33.783931,
+    "lng": 150.852737
+  },
+  {
+    "id": "erina",
+    "name": "Brooklyn Donuts Erina",
+    "address": "Erina Fair, Shop TK33, Terrigal Dr, Erina NSW 2250",
+    "phone": "(02) 4315 3698",
+    "hours": "Mon-Wed 7:30am-5:30pm; Thu 7:30am-9:00pm; Fri-Sun 7:30am-5:30pm",
+    "lat": -33.4368,
+    "lng": 151.392
+  },
+  {
+    "id": "glendale",
+    "name": "Brooklyn Donuts Glendale",
+    "address": "Glendale City Centre, 387 Lake Rd, Glendale NSW 2285",
+    "phone": "(02) 4092 8452",
+    "hours": "Mon-Wed 7:30am-5:30pm; Thu 7:30am-9:00pm; Fri 7:30am-5:30pm; Sat 8:00am-5:00pm; Sun 8:30am-4:00pm",
+    "lat": -32.931019,
+    "lng": 151.641846
+  },
+  {
+    "id": "green-hills",
+    "name": "Brooklyn Donuts Green Hills",
+    "address": "Stockland Green Hills, 1 Molly Morgan Dr, East Maitland NSW 2323",
+    "phone": "(02) 4083 3390",
+    "hours": "Mon-Wed 7:30am-5:30pm; Thu 7:30am-9:00pm; Fri-Sun 7:30am-5:30pm",
+    "lat": -32.7648,
+    "lng": 151.5755
+  },
+  {
+    "id": "hornsby",
+    "name": "Brooklyn Donuts Hornsby",
+    "address": "Westfield Hornsby, Level 1 near Coles, Kiosk K113, 236 Pacific Hwy, Hornsby NSW 2077",
+    "phone": "(02) 8014 3487",
+    "hours": "Mon-Wed 7:00am-6:00pm; Thu 7:00am-9:00pm; Fri-Sat 7:00am-6:00pm; Sun 7:00am-5:30pm",
+    "lat": -33.706,
+    "lng": 151.099,
+    "notes": "Closest entry: Burdett St, Olive or Blue car park"
+  },
+  {
+    "id": "kotara",
+    "name": "Brooklyn Donuts Kotara",
+    "address": "Westfield Kotara, Northcott Dr, Kotara NSW 2289",
+    "phone": "(02) 4072 1918",
+    "hours": "Mon-Wed 7:30am-5:30pm; Thu 7:30am-9:00pm; Fri-Sat 7:30am-5:30pm; Sun 8:30am-4:00pm",
+    "lat": -32.9425,
+    "lng": 151.71
+  },
+  {
+    "id": "liverpool",
+    "name": "Brooklyn Donuts Liverpool",
+    "address": "Westfield Liverpool, Kiosk 2007, Food Court, Macquarie St, Liverpool NSW 2170",
+    "phone": "(02) 8106 8950",
+    "hours": "Mon-Wed 8:00am-5:30pm; Thu 8:00am-9:00pm; Fri-Sat 8:00am-5:30pm; Sun 9:00am-5:00pm",
+    "lat": -33.9195,
+    "lng": 150.923
+  },
+  {
+    "id": "macarthur-square",
+    "name": "Brooklyn Donuts Macarthur Square",
+    "address": "Macarthur Square, 200 Gilchrist Dr, Campbelltown NSW 2560",
+    "phone": "(02) 8609 7667",
+    "hours": "Mon-Wed 9:00am-5:30pm; Thu 9:00am-9:00pm; Fri-Sat 9:00am-5:30pm; Sun 10:00am-5:00pm",
+    "lat": -34.075459,
+    "lng": 150.799484
+  },
+  {
+    "id": "miranda",
+    "name": "Brooklyn Donuts Miranda",
+    "address": "Westfield Miranda, Floor 1, Kiosk K148, Kingsway, Miranda NSW 2228",
+    "phone": "(02) 7501 5634",
+    "hours": "Mon-Wed 9:30am-6:00pm; Thu 9:30am-9:00pm; Fri 9:30am-6:00pm; Sat 9:00am-6:00pm; Sun 10:00am-6:00pm",
+    "lat": -34.0353,
+    "lng": 151.1005
+  },
+  {
+    "id": "penrith",
+    "name": "Brooklyn Donuts Penrith",
+    "address": "Westfield Penrith, High St, Penrith NSW 2750",
+    "phone": "(02) 4713 1783",
+    "hours": "Mon-Wed 7:00am-5:30pm; Thu 7:00am-9:00pm; Fri-Sat 7:00am-5:30pm; Sun 8:00am-5:30pm",
+    "lat": -33.751,
+    "lng": 150.694
+  },
+  {
+    "id": "rhodes",
+    "name": "Brooklyn Donuts Rhodes",
+    "address": "Rhodes Waterside, Level 4 near Food Court, Kiosk 07, 1 Rider Blvd, Rhodes NSW 2138",
+    "phone": "(02) 7240 1788",
+    "hours": "Mon-Wed 7:30am-6:00pm; Thu 7:30am-9:00pm; Fri-Sun 7:30am-6:00pm",
+    "lat": -33.832,
+    "lng": 151.086
+  },
+  {
+    "id": "roselands",
+    "name": "Brooklyn Donuts Roselands",
+    "address": "Oporto Roselands Drive Thru, Canterbury Rd, Roselands NSW 2196",
+    "phone": "(02) 9424 1233",
+    "hours": "Mon-Sun 8:00am-10:00pm",
+    "lat": -33.9312,
+    "lng": 151.0788,
+    "notes": "Next to Oporto. Drive-thru."
+  },
+  {
+    "id": "rouse-hill",
+    "name": "Brooklyn Donuts Rouse Hill",
+    "address": "Rouse Hill Town Centre, 10/14 Market Ln, Rouse Hill NSW 2155",
+    "phone": "(02) 8806 4515",
+    "hours": "Mon-Wed 8:00am-5:30pm; Thu 8:00am-8:30pm; Fri-Sat 8:00am-5:30pm; Sun 9:00am-4:30pm",
+    "lat": -33.690739,
+    "lng": 150.924606
+  },
+  {
+    "id": "tuggerah",
+    "name": "Brooklyn Donuts Tuggerah",
+    "address": "Westfield Tuggerah, Kiosk K125, Wyong Rd, Tuggerah NSW 2259",
+    "phone": "(02) 4314 6244",
+    "hours": "Mon-Wed 8:00am-5:30pm; Thu 8:00am-9:00pm; Fri-Sat 8:00am-5:30pm; Sun 9:00am-5:00pm",
+    "lat": -33.308,
+    "lng": 151.412
+  }
+]

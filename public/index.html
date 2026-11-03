@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FBF4EE">
+<title>Brooklyn Bot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Colours sampled from the Brooklyn Donuts app screenshots */
+  :root {
+    --bg: #FBF4EE;          /* warm cream page background */
+    --card: #FFFFFF;
+    --orange: #E3843B;      /* brand orange: buttons, loyalty cards */
+    --orange-dark: #CC7030;
+    --ink: #111111;         /* near-black headings */
+    --text: #2A2623;
+    --muted: #8C857F;       /* grey labels */
+    --line: #ECE4DD;
+    --chip-line: #E4DCD5;
+    --radius-xl: 28px;      /* big rounded cards */
+    --radius-lg: 22px;
+    --shadow: 0 2px 10px rgba(60, 35, 15, 0.06);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .app { max-width: 480px; height: 100dvh; margin: 0 auto; display: flex; flex-direction: column; position: relative; }
+
+  /* ---------- Header ---------- */
+  header { padding: 22px 20px 12px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .22em; color: var(--muted); text-transform: uppercase; margin: 0 0 4px; }
+  h1 { margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1.05; }
+  .round-btn {
+    width: 52px; height: 52px; border-radius: 50%; border: none; background: var(--card);
+    box-shadow: var(--shadow); display: grid; place-items: center; cursor: pointer; flex: none; color: var(--ink);
+  }
+  .round-btn svg { width: 24px; height: 24px; }
+
+  /* ---------- Scroll area ---------- */
+  #scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 4px 20px 24px; }
+
+  /* "FROM STORE" style card */
+  .store-card {
+    width: 100%; display: flex; align-items: center; gap: 14px; text-align: left;
+    background: var(--card); border: none; border-radius: var(--radius-lg); padding: 16px 18px;
+    box-shadow: var(--shadow); cursor: pointer; font: inherit; color: inherit; margin-bottom: 14px;
+  }
+  .store-card .ico { width: 30px; height: 30px; color: var(--ink); flex: none; }
+  .store-card .label { font-size: 11px; font-weight: 700; letter-spacing: .16em; color: var(--muted); text-transform: uppercase; }
+  .store-card .value { font-size: 17px; font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .store-card .chev { margin-left: auto; color: var(--muted); font-size: 22px; }
+
+  /* Order / Scan / Find store style tiles */
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px; }
+  .tile {
+    background: var(--card); border: none; border-radius: var(--radius-lg); padding: 16px 8px 14px;
+    box-shadow: var(--shadow); cursor: pointer; font: inherit; color: var(--ink);
+    display: flex; flex-direction: column; align-items: center; gap: 10px; font-weight: 700; font-size: 14px;
+  }
+  .tile .badge-ico { width: 50px; height: 50px; border-radius: 16px; background: var(--orange); color: #fff; display: grid; place-items: center; }
+  .tile .badge-ico svg { width: 24px; height: 24px; }
+  .tile:active, .store-card:active { transform: scale(.98); }
+
+  .section-title { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
+
+  /* ---------- Messages ---------- */
+  #log { display: flex; flex-direction: column; gap: 10px; }
+  .msg b { font-weight: 800; }
+  .msg { max-width: 84%; padding: 13px 16px; font-size: 15.5px; line-height: 1.45; white-space: pre-wrap; word-wrap: break-word; font-weight: 500; }
+  .model { align-self: flex-start; background: var(--card); color: var(--text); border-radius: 22px 22px 22px 6px; box-shadow: var(--shadow); }
+  .user { align-self: flex-end; background: var(--orange); color: #fff; border-radius: 22px 22px 6px 22px; font-weight: 600; }
+  .error { align-self: center; background: #FFE8E0; color: #9A3412; font-size: 13.5px; border-radius: 16px; }
+  .typing { display: inline-flex; gap: 5px; align-items: center; padding: 16px 18px; }
+  .typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); opacity: .35; animation: blink 1.2s infinite; }
+  .typing i:nth-child(2) { animation-delay: .2s; } .typing i:nth-child(3) { animation-delay: .4s; }
+  @keyframes blink { 40% { opacity: 1; transform: translateY(-2px); } }
+
+  /* Order summary = loyalty-card style */
+  .cart { align-self: stretch; background: var(--orange); color: #fff; border-radius: var(--radius-xl); padding: 20px 22px 22px; }
+  .cart .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .cart .label { font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+  .cart .pill { background: #fff; color: var(--orange); font-weight: 800; font-size: 15px; padding: 5px 14px; border-radius: 99px; }
+  .cart h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin: 10px 0 14px; line-height: 1.1; }
+  .cart .row { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-top: 1.5px dashed rgba(255,255,255,.55); font-weight: 600; }
+  .cart .row:first-of-type { border-top: none; }
+  .cart .ok { margin-top: 12px; background: rgba(255,255,255,.18); border-radius: 14px; padding: 10px 12px; font-size: 14px; font-weight: 700; }
+
+  /* ---------- Bottom: chips + floating input pill ---------- */
+  /* The dock sits BELOW the chat (not on top of it), so messages can never hide behind it */
+  .dock { flex: none; position: relative; padding: 10px 16px calc(14px + env(safe-area-inset-bottom)); background: var(--bg); }
+  .dock::before { content: ""; position: absolute; left: 0; right: 0; top: -24px; height: 24px; pointer-events: none;
+                  background: linear-gradient(to top, var(--bg), rgba(251,244,238,0)); }
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding: 0 4px 10px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: none; border: 1.5px solid var(--chip-line); background: transparent; color: var(--text);
+    padding: 9px 16px; border-radius: 99px; font: inherit; font-size: 13px; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase; cursor: pointer;
+  }
+  .chip:hover, .chip:focus-visible { background: var(--orange); border-color: var(--orange); color: #fff; outline: none; }
+  form {
+    display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 20px;
+    background: rgba(255,255,255,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line); border-radius: 99px; box-shadow: 0 6px 24px rgba(60,35,15,.10);
+  }
+  input { flex: 1; min-width: 0; border: none; background: transparent; font: inherit; font-size: 16px; font-weight: 500; color: var(--ink); padding: 12px 0; }
+  input::placeholder { color: var(--muted); }
+  input:focus { outline: none; }
+  form button {
+    width: 48px; height: 48px; border-radius: 50%; border: none; background: var(--orange); color: #fff;
+    display: grid; place-items: center; cursor: pointer; flex: none;
+  }
+  form button:disabled { opacity: .45; cursor: default; }
+  form button svg { width: 22px; height: 22px; }
+  .demo-note { text-align: center; font-size: 11px; color: var(--muted); margin-top: 8px; font-weight: 600; letter-spacing: .04em; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div>
+      <p class="eyebrow">Brooklyn Donuts</p>
+      <h1 id="greeting">Brooklyn Bot</h1>
+    </div>
+    <button class="round-btn" id="resetBtn" type="button" aria-label="Start a new chat" title="New chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+    </button>
+  </header>
+
+  <div id="scroll">
+    <button class="store-card" id="locBtn" type="button">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"/><path d="M5 13v7h14v-7"/><path d="M9 20v-4h6v4"/></svg>
+      <div>
+        <div class="label">Nearest store</div>
+        <div class="value" id="locText">Tap to share location</div>
+      </div>
+      <span class="chev">›</span>
+    </button>
+
+    <div class="tiles">
+      <button class="tile" type="button" data-q="I'd like to order some donuts for pickup">
+        <span class="badge-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10M17 21V3c-2.2 1-3.5 3.5-3.5 7v3H17"/></svg></span>
+        Order
+      </button>
+      <button class="tile" type="button" data-q="What's on the menu?">
+        <span class="badge-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/></svg></span>
+        Menu
+      </button>
+      <button class="tile" type="button" id="findTile">
+        <span class="badge-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 3L3 10.5l7.5 3 3 7.5z"/></svg></span>
+        Find store
+      </button>
+    </div>
+
+    <h2 class="section-title">Chat</h2>
+    <div id="log" aria-live="polite"></div>
+  </div>
+
+  <div class="dock">
+    <div class="chips">
+      <button class="chip" type="button" data-q="What's the phone number for my nearest store?">Phone numbers</button>
+      <button class="chip" type="button" data-q="What are the opening hours?">Opening hours</button>
+      <button class="chip" type="button" data-q="What donuts do you have?">Donuts</button>
+      <button class="chip" type="button" data-q="What iced drinks and frappes do you have?">Iced drinks</button>
+      <button class="chip" type="button" data-q="What coffees do you have?">Coffee</button>
+    </div>
+    <form id="form">
+      <input id="input" autocomplete="off" placeholder="Ask Brooklyn Bot…" maxlength="1000" aria-label="Message">
+      <button id="send" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+    <div class="demo-note">DEMO · orders are not sent to a store</div>
+  </div>
+</div>
+
+<script>
+  const log = document.getElementById("log");
+  const scroller = document.getElementById("scroll");
+  const form = document.getElementById("form");
+  const input = document.getElementById("input");
+  const sendBtn = document.getElementById("send");
+  const locBtn = document.getElementById("locBtn");
+  const locText = document.getElementById("locText");
+
+  // The whole conversation lives here, in the browser. Sent to the backend each turn.
+  let messages = [];
+  let userLocation = null;
+  let currentCart = null; // sent back each turn so the bot can confirm it
+  const WELCOME = "Hi, I'm Brooklyn Bot! 🍩 I can find your nearest store, give you phone numbers and opening hours, answer menu questions, or put together a pickup order. What can I help with?";
+
+  const scrollDown = () => scroller.scrollTo({ top: scroller.scrollHeight, behavior: "smooth" });
+
+  // The AI sometimes replies in Markdown (**bold**, "* " bullets). Turn that into
+  // clean formatting. Text is escaped first so nothing the AI writes can inject HTML.
+  function formatReply(text) {
+    return escapeHtml(text)
+      .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
+      .replace(/^[ \t]*[*-][ \t]+/gm, "• ")
+      .replace(/\n{3,}/g, "\n\n");
+  }
+
+  function add(cls, text) {
+    const el = document.createElement("div");
+    el.className = "msg " + cls;
+    if (cls === "model") el.innerHTML = formatReply(text);
+    else el.textContent = text;
+    log.appendChild(el);
+    scrollDown();
+    return el;
+  }
+
+  function showTyping() {
+    const el = document.createElement("div");
+    el.className = "msg model typing";
+    el.setAttribute("aria-label", "Brooklyn Bot is typing");
+    el.innerHTML = "<i></i><i></i><i></i>";
+    log.appendChild(el);
+    scrollDown();
+    return el;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  // Order summary styled like the app's loyalty cards
+  function showCart(cart) {
+    if (!cart || !cart.lines?.length) return;
+    const count = cart.lines.reduce((n, l) => n + l.quantity, 0);
+    const el = document.createElement("div");
+    el.className = "cart";
+    const rows = cart.lines.map(l =>
+      `<div class="row"><span>${l.quantity} × ${escapeHtml(l.name)}</span><span>$${l.line_total.toFixed(2)}</span></div>`
+    ).join("");
+    el.innerHTML =
+      `<div class="top"><span class="label">${cart.confirmed ? "Order confirmed" : "Your order"}</span><span class="pill">$${cart.total.toFixed(2)}</span></div>` +
+      `<h3>${count} item${count === 1 ? "" : "s"}${cart.store ? " from " + escapeHtml(cart.store.replace(/^Brooklyn Donuts\s*/, "")) : ""}</h3>` +
+      rows +
+      (cart.confirmed
+        ? `<div class="ok">✓ Order ${escapeHtml(cart.order_number || "")} confirmed · Ready ${cart.ready_at ? "at " + escapeHtml(cart.ready_at) : "soon"}<br><span style="font-weight:600;opacity:.85">Demo only, not sent to a store</span></div>`
+        : "");
+    log.appendChild(el);
+    scrollDown();
+  }
+
+  async function send(text) {
+    text = text.trim();
+    if (!text || sendBtn.disabled) return;
+    add("user", text);
+    messages.push({ role: "user", text });
+    input.value = "";
+    sendBtn.disabled = true;
+    const typing = showTyping();
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages, location: userLocation, cart: currentCart }),
+      });
+      const data = await res.json();
+      typing.remove();
+      if (!res.ok || data.error) {
+        add("error", data.error || "Something went wrong.");
+        messages.pop(); // let them retry the same message
+        return;
+      }
+      add("model", data.reply);
+      messages.push({ role: "model", text: data.reply });
+      if (data.cart) currentCart = data.cart.confirmed ? null : data.cart; // start fresh after a confirmed order
+      showCart(data.cart);
+    } catch (e) {
+      typing.remove();
+      add("error", "Couldn't reach the server. Are you running `netlify dev`?");
+      messages.pop();
+    } finally {
+      sendBtn.disabled = false;
+      input.focus();
+    }
+  }
+
+  // The browser asks permission, then gives us lat/lng. The backend does the distance maths.
+  function shareLocation() {
+    if (userLocation) return send("Which store is closest to me?");
+    if (!navigator.geolocation) return add("error", "Location isn't available in this browser.");
+    locText.textContent = "Locating…";
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        locText.textContent = "Location shared ✓";
+        send("I've shared my location. Which store is closest?");
+      },
+      () => { locText.textContent = "Tap to share location"; add("error", "Location permission was denied. You can type your suburb instead."); },
+      { timeout: 10000 }
+    );
+  }
+
+  function reset() {
+    messages = [];
+    currentCart = null;
+    log.innerHTML = "";
+    add("model", WELCOME);
+    scroller.scrollTo({ top: 0 });
+  }
+
+  form.addEventListener("submit", e => { e.preventDefault(); send(input.value); });
+  document.querySelectorAll("[data-q]").forEach(b => b.addEventListener("click", () => send(b.dataset.q)));
+  locBtn.addEventListener("click", shareLocation);
+  document.getElementById("findTile").addEventListener("click", shareLocation);
+  document.getElementById("resetBtn").addEventListener("click", reset);
+
+  reset();
+</script>
+</body>
+</html>
